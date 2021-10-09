@@ -13,21 +13,38 @@
 
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui odio illo nihil maiores fugiat eos cum incidunt ipsa nisi repellendus quos possimus itaque quasi ipsum ullam, quidem tempora ab. Odio!</p>
 
-        <div id="-decoded-to-encoded">
+      <!-- ------PARA CODIFICAR-------------------- -->
+      <div id="decoded-to-encoded">
           
-          <div id="decoded">
-            <input id="enterEncodedText" type="text" placeholder="Ingresa un texto">
-            <button id="decode-btn" class='btn'>Dec.</button>
+        <div id="decoded-input">
+          <input id="enterDecodedText" type="text" placeholder="Ingresa texto a codificar">
+          <button id="decode-btn" class='btn'>Dec.</button>
+        </div>
+
+        <div id="encoded"></div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <!-- -------PARA DECODIFICAR------------------- -->
+
+        <div id="encoded-to-decoded">
+            
+          <div id="encoded-input">
+            <input id="enterEncodedText" type="text" placeholder="Ingresa texto a decodificar">
+            <button id="encode-btn" class='btn'>Dec.</button>
           </div>
 
-          <div id="encoded">
-            <p>si si</p>
-          </div>
+          <div id="decoded"></div>
         </div>
 
 
 
-        <!-- <button class='btn'>Conf.</button> -->
+
+
+
+        <!-- <button class='btn'>Conf.</button>
 
         <!-- <div class="overlay">
           <div class="offset-popup">
@@ -44,7 +61,7 @@
         </div>
         
       </div>   -->
-    
+     
       
       
     <script src="index.js" type="module"></script>

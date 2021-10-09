@@ -90,5 +90,17 @@ input:focus{
     padding: 40px;
 }
 
+#decoded{
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 300px;
+    height: 200px;
+    margin: 30px 50px;
+    /* text-align: center; */
+    padding: 40px;
+}
+
+
 
 

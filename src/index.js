@@ -3,37 +3,14 @@ import cipher from './cipher.js';
 console.log(cipher);
 
 
-const encodeInput = document.getElementById('enterEncodedText');
-let decodeBtn = document.getElementById('decode-btn');
+const encodedInput = document.getElementById('enterDecodedText');
+let decodeTextBtn = document.getElementById('decode-btn');
 
-decodeBtn.addEventListener('click',()=>{codificar(encodeInput)});
+decodeTextBtn.addEventListener('click',()=>{cipher.codificar(encodedInput)});
 
-function codificar(text){
-    
-    const encodedArray = text.value.split('');
-    console.log(encodedArray);
-    
-    let decodeTextResult = '';
 
-    for (let letter of encodedArray){
 
-        console.log(letter);
-        
-        let letterDecodedPosition = letter.charCodeAt(0);
-        console.log(letterDecodedPosition);
-        
-        let encodedFormula = (letterDecodedPosition - 65 + 33) % 26 + 65;
-        console.log(encodedFormula);
+const decodedInput = document.getElementById('enterEncodedText');
+let encodeTextBtn = document.getElementById('encode-btn');
 
-        let encodedLetter = String.fromCharCode(encodedFormula);
-        console.log(encodedLetter);
-        
-        decodeTextResult+=encodedLetter;
-
-    }    
-  
-    console.log(decodeTextResult);
-
-    let decodeWindow = document.getElementById('encoded');
-    decodeWindow.innerHTML = decodeTextResult; 
-}
+encodeTextBtn.addEventListener('click', ()=>{cipher.decodificar(decodedInput)});
