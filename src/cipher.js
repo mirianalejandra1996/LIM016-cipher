@@ -1,33 +1,31 @@
 const codificar = (text) => {
   const encodedArray = text.value.split('');
-  // console.log(encodedArray);
   
   let decodeTextResult = '';
 
   for (let letter of encodedArray){
 
-      console.log(letter);
-      
       let letterDecodedPosition = letter.charCodeAt(0);
-      
-      // console.log(letterDecodedPosition);
-      
-      let encodedFormula = (letterDecodedPosition - 65 + 33) % 26 + 65;
-      // console.log(encodedFormula);
+      console.log(letterDecodedPosition);
 
-      let encodedLetter = String.fromCharCode(encodedFormula);
-      // console.log(encodedLetter);
-      
-      decodeTextResult+=encodedLetter;
+      if (letterDecodedPosition >=97){
 
+        letterDecodedPosition-=32;
+        let encodedFormula = (letterDecodedPosition - 65 + 33) % 26 + 65;
+        let lowerCaseLetter = String.fromCharCode(encodedFormula).toLowerCase();
+        decodeTextResult+=lowerCaseLetter;
+
+      } else {
+
+        let encodedFormula = (letterDecodedPosition - 65 + 33) % 26 + 65;
+        let encodedLetter = String.fromCharCode(encodedFormula);
+        decodeTextResult+=encodedLetter;
+
+      }
   }    
-
-  // console.log(decodeTextResult);
-
-  let encodeWindow = document.getElementById('encoded');
-  encodeWindow.innerHTML = decodeTextResult; 
+  let ventanaCodificar = document.getElementById('resultado-codificado');
+  ventanaCodificar.innerHTML = decodeTextResult; 
 }
-
 
 const decodificar = (text) => {
     
@@ -58,6 +56,7 @@ const decodificar = (text) => {
   let decodedWindow = document.getElementById('decoded');
   decodedWindow.innerHTML = decodedTextResult; 
 }
+
 
 
 const cipher = {
