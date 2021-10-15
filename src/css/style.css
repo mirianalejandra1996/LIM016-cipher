@@ -1,118 +1,255 @@
 body {
-    padding: 50px;
-    box-sizing: border-box;
-    font-family: 'Roboto';
-  }
-  .contenedor {
-    height: 400px;
-    width: 530px;
-    margin: auto;
-    position: relative;
-  }
+  padding: 50px;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
 
-  .ventana-decodificada {
-    height: 100%;
+/* Fonts icons */
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?qms554');
+  src:  url('fonts/icomoon.eot?qms554#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?qms554') format('truetype'),
+    url('fonts/icomoon.woff?qms554') format('woff'),
+    url('fonts/icomoon.svg?qms554#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-to-encoded-icon-bigger-este:before {
+  content: "\e900";
+}
+.icon-to-decoded-icon-bigger:before {
+  content: "\e901";
+}
+.icon-a-letter-icon:before {
+  content: "\e902";
+}
+.icon-broom-icon:before {
+  content: "\e903";
+}
+.icon-chinese-letter-icon:before {
+  content: "\e904";
+}
+.icon-padlock-icon:before {
+  content: "\e905";
+}
+.icon-to-decoded-icon:before {
+  content: "\e906";
+}
+.icon-to-encoded-icon:before {
+  content: "\e907";
+}
+
+
+.contenedor {
+  height: 350px;
+  width: 530px;
+  margin: 100px auto 20px;
+  position: relative;
+  /* display: none; */
+}
+
+.ventana-decodificada {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+}
+
+.ventana-codificada {
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 200;
+}
+
+.div-front-tab {
+  background-color: #ffb4a2;
+  /* width: 30%; */
+  height: 100px;
+  position: absolute;
+  left: 0;
+  z-index: 250;
+  box-sizing: border-box;
+}
+
+.sub-ventana-codificada {
+  background-color: #e5989b;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  /* padding: 10px; */
+  padding: 25px 20px;
+  box-sizing: border-box;
+}
+
+.div-back-tab {
+  background-color: #ffb4a2;
+  /* width: 30%; */
+  height: 100px;
+  position: absolute;
+  left: 0;
+  z-index: 250;
+  box-sizing: border-box;
+}
+
+.sub-ventana-decodificada {
+  background-color: #B5838D;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  box-sizing: border-box;
+  padding: 25px 20px;
+}
+
+.rounded-square{
+  border-radius: 30px;
+}
+
+.btn-circle{
+  background: #ffcdb2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+}
+
+.icon{
+  color:#000;
+}
+
+.btn-circle .icon span{
+  font-size: 20px;
+}
+
+.option-button{
+  margin: 0 20px;
+}
+
+#offset-container{
+  position: relative;
+  width: 90px;
+  z-index: 300;
+}
+
+.input-btn{
+  position: absolute;
+  z-index: 400;
+}
+
+.offset-input-element{
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: #FBFAFA;
+  border-radius: 50px;
+  position: absolute;
+  text-align: center;
+  padding-left: 45px;
+}
+
+.identifier-btn{
+  position: absolute;
+  top: -20px;
+  right: 15px;
+}
+
+.boton-ojo-hidden-container {
+  z-index: 350;
+}
+
+.boton-ojo-opened-container {
+  z-index: 350;
+}
+
+.text-area {
+  resize: none;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  width: 100%;
+  height: 20px;
+}
+
+
+.boton-traducir {
+  width: 30px;
+  height: 30px;
+  background-color: #ffcdb2;
+  border-radius: 50%;
+  text-align: center;
+}
+
+#seccion-botones-codifica{
+    margin: 10px auto;
+    width: 350px;
+    display: flex;
+    justify-content: center;
     width: 100%;
-    position: absolute;
-    z-index: 100;
-    border-radius: 20px;
-  }
+}
 
-  .ventana-codificada {
-    height: 40%;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: 200;
-  }
+.lower-window{
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+  color: #000;
+}
 
-  .div-front-pestaña {
-    background-color: #ffb4a2;
-    width: 30%;
-    height: 100px;
-    position: absolute;
-    top: -35px;
-    left: 0;
-    z-index: 250;
-    border-radius: 12px;
-    padding: 10px;
-  }
+#ingresar-texto-decodificado{
+  padding: 10px;
+  color: #000;
+  font-family: 'Roboto';
+  font-size: 14px;
+  /* background-color: aqua; */
+  height: 45%;
+}
 
-  .sub-ventana-codificada {
-    background-color: #e5989b;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 300;
-    border-radius: 20px;
-  }
+#ingresar-texto-decodificado::placeholder{
+  color:#000;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-style: italic;
+  line-height: initial;
+  font-size: 14px;
+}
 
-  .div-back-pestaña {
-    background-color: #ffb4a2;
-    width: 30%;
-    height: 100px;
-    position: absolute;
-    top: -35px;
-    left: 0;
-    z-index: 250;
-    border-radius: 12px;
-    padding: 10px;
-  }
+.tab{
+  top:-45px;
+  padding: 15px 20px;
+  width: 30%;
+}
 
-  .sub-ventana-decodificada {
-    background-color: #B5838D;
-    border-radius: 20px;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 300;
-  }
-
-  .boton-ojo-hidden-container {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #ffcdb2;
-    border-radius: 50%;
-    z-index: 100000000;
-    top: -15px;
-    right: 20px;
-    text-align: center;
-  }
-
-  .boton-ojo-opened-container {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #ffcdb2;
-    border-radius: 50%;
-    z-index: 100000000;
-    top: -15px;
-    right: 20px;
-    text-align: center;
-  }
-
-  .text-area {
-    resize: none;
-    outline: none;
-    border: none;
-    background: transparent;
-    padding: 10px;
-    width: 100%;
-  }
-
-
-  .boton-traducir {
-    width: 30px;
-    height: 30px;
-    background-color: #ffcdb2;
-    border-radius: 50%;
-    text-align: center;
-  }
-
-  #seccion-boton-traducir{
-      margin: 10px auto;
-      width: 350px;
-      display: flex;
-      justify-content: center;
-  }
+/* .format-window{
+  padding: 25px 20px;
+  height: 45%;
+  background-color: antiquewhite;
+} */

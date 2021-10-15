@@ -1,13 +1,37 @@
 import cipher from './cipher.js';
-
-console.log(cipher);
-
+// console.log(cipher);
+import functionalities from './btnsFunctionality.js';
 
 const encodedInput = document.getElementById('ingresar-texto-decodificado');
-let decodeTextBtn = document.getElementById('btn-traducir');
+let offsetInput = document.getElementById('offset');
+
+encodedInput.addEventListener('input', ()=>{cipher.codificar(encodedInput,offsetInput)} )
+
+const changeWindows = document.getElementById('change-windows');
+changeWindows.addEventListener('click', functionalities.cambiarVentanas)
 
 
-decodeTextBtn.addEventListener('click',()=>{cipher.codificar(encodedInput)});
+
+const cleanInputs = document.getElementById('clean-inputs');
+cleanInputs.addEventListener('click', functionalities.limpiarVentanaDecodificada);
+
+
+
+
+
+
+
+
+// let decodeTextBtn = document.getElementById('prueba');
+
+
+// decodeTextBtn.addEventListener('click',()=>{cipher.codificar(encodedInput,offsetInput)});
+
+
+
+
+
+
 
 
 // const decodedInput = document.getElementById('enterEncodedText');
