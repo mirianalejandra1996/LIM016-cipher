@@ -16,6 +16,8 @@ const cleanInputs = document.getElementById('clean-inputs');
 cleanInputs.addEventListener('click', functionalities.limpiarVentanaDecodificada);
 
 
+offsetInput.addEventListener('input', () => {functionalities.offsetChanges(encodedInput,offsetInput)});
+
 
 
 
