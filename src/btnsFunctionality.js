@@ -1,17 +1,20 @@
 import cipher from './cipher.js';
 
-const limpiarVentanaDecodificada = () => {
+function limpiarVentanaDecodificada () {
 
     const upperWindow = document.getElementById('ingresar-texto-decodificado');
     const lowerWindow = document.getElementById('resultado-codificado');
 
     upperWindow.value='';
     lowerWindow.value='';
-};
+}
 
-const changeToDecoded = () => {
+function changeToDecoded () {
 
    console.log('Estamos cambiando ventanas para Decodificar!!')
+
+   let removeEventIngresarTextoCodificado = document.getElementById('ingresar-texto-decodificado');
+   removeEventIngresarTextoCodificado.removeEventListener('input', cipher.codificar);
 
    let textsAreas = document.getElementsByTagName('textarea');
    textsAreas[0].id = 'ingresar-texto-codificado';
@@ -39,9 +42,15 @@ const changeToDecoded = () => {
    let showButtonsDecoded = document.getElementById('buttons-section-encoded-to-decoded');
    showButtonsDecoded.classList.replace('hidden','shown');
 
+   let enterEncodedInput = document.getElementById('ingresar-texto-codificado');
+   const encodedOffsetInput = document.getElementById('decoded-offset');
+
+   let addEventIngresarTextoDecodificado = document.getElementById('ingresar-texto-codificado');
+   addEventIngresarTextoDecodificado.addEventListener('input', ()=>{cipher.decodificar(enterEncodedInput,encodedOffsetInput)});
+
 }
 
-const encodedOffsetChanges = (text, offset) => {
+function encodedOffsetChanges (text, offset) {
     console.log('Estamos cambiando el offset');
 
     cipher.codificar(text,offset);
@@ -56,7 +65,7 @@ const functionalitiesEncodedToDecoded = {
 
 // ---------------------- LAS OTRAS FUNCIONALIDADES!! -------------
 
-const limpiarVentanaCodificada = () => {
+function limpiarVentanaCodificada () {
 
     const upperWindow = document.getElementById('ingresar-texto-codificado');
     console.log(upperWindow.value);
@@ -64,9 +73,9 @@ const limpiarVentanaCodificada = () => {
     
     upperWindow.value='';
     lowerWindow.value='';
-};
+}
 
-const changeToEncoded = () => {
+function changeToEncoded () {
 
    console.log('Estamos cambiando ventanas para Codificar!!')
 
@@ -95,7 +104,7 @@ const changeToEncoded = () => {
 
 }
 
-const decodedOffsetChanges = (text, offset) => {
+function decodedOffsetChanges (text, offset) {
     console.log('Estamos cambiando el offset');
 
     cipher.decodificar(text,offset);

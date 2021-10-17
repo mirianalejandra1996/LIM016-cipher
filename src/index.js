@@ -6,7 +6,7 @@ import {functionalitiesEncodedToDecoded,functionalitiesDecodedToEncoded} from '.
 let enterDecodedInput = document.getElementById('ingresar-texto-decodificado');
 const decodedOffsetInput = document.getElementById('encoded-offset');
 
-enterDecodedInput.addEventListener('input', ()=>{cipher.codificar(enterDecodedInput,decodedOffsetInput)} )
+enterDecodedInput.addEventListener('input', ()=>{cipher.codificar(enterDecodedInput,decodedOffsetInput)} );
 
 const changeWindowsToDecoded = document.getElementById('change-windows-to-decoded');
 changeWindowsToDecoded.addEventListener('click', functionalitiesEncodedToDecoded.changeToDecoded);
@@ -20,11 +20,6 @@ decodedOffsetInput.addEventListener('input', () => {functionalitiesEncodedToDeco
 
 
 // Ventana encoded-to-decoded
-
-// let enterEncodedInput, encodedOffsetInput, cleanEncodedInput;
-
-
-
 
 // let enterEncodedInput = document.getElementById('ingresar-texto-codificado');
 // const encodedOffsetInput = document.getElementById('decoded-offset');
