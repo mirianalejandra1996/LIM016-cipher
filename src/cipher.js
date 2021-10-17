@@ -1,10 +1,23 @@
+// Codigo para decodificar
+// let decodedFormula = (letterDecodedPosition - 65 - chosenOffset ) % 26 + 65;
+
+
 const codificar = (text, offset) => {
   
-  console.log('tecleando');
+  console.log('tecleando en codificar');
 
   let chosenOffset = parseInt(offset.value);
-  const encodedArray = text.value.split('');
+  const encodedArray = text.value.trim().split('');
+  console.log(encodedArray);
+
+  if (encodedArray.length === 0){
+    console.log('Está vacio este array')
+    let empty=document.getElementById('resultado-codificado');
+    empty.value = '';
+  } else {
   
+  console.log('si tiene elementos este array');
+
   // if(chosenOffset < 0){
   //   console.log('entramos')
   //   console.log(chosenOffset);
@@ -12,71 +25,95 @@ const codificar = (text, offset) => {
   //   console.log(chosenOffset);
   // }
 
-  let decodeTextResult = '';
+    let decodeTextResult = '';
+    // ! NO TOCAR
+    for (let letter of encodedArray){
 
-  for (let letter of encodedArray){
+        let letterDecodedPosition = letter.charCodeAt(0);
 
-      let letterDecodedPosition = letter.charCodeAt(0);
+        // Están consideradas solamente las letras que conforman el abecedario en mayúscula y en minúscula.
 
-      // if letra es espacio o símbolo {usa regex y lo metes en decodeTextResult}
+        if (letterDecodedPosition >= 65 && letterDecodedPosition <= 90){
+          
+          // si la letra es mayúscula
+          let encodedFormula = (letterDecodedPosition - 65 + chosenOffset ) % 26 + 65;
+          let upperCaseLetter = String.fromCharCode(encodedFormula);
+          decodeTextResult+=upperCaseLetter;
 
-      if (letterDecodedPosition >= 65 && letterDecodedPosition <= 90){
-        
-        // si la letra es mayúscula
-        let encodedFormula = (letterDecodedPosition - 65 + chosenOffset ) % 26 + 65;
-        let upperCaseLetter = String.fromCharCode(encodedFormula);
-        decodeTextResult+=upperCaseLetter;
+        } else if (letterDecodedPosition >= 97 && letterDecodedPosition <= 122){
 
-      } else if (letterDecodedPosition >= 97 && letterDecodedPosition <= 122){
+          // si la letra es minúscula
+          let encodedFormula = (letterDecodedPosition - 97 + chosenOffset ) % 26 + 97; //CODIFICAR
+          
+          let encodedLetter = String.fromCharCode(encodedFormula);
+          decodeTextResult+=encodedLetter;
 
-        // si la letra es minúscula
-        let encodedFormula = (letterDecodedPosition - 97 + chosenOffset ) % 26 + 97; //CODIFICAR
-        
-        let encodedLetter = String.fromCharCode(encodedFormula);
-        decodeTextResult+=encodedLetter;
+        } else{
+          decodeTextResult+=letter;
+        }
 
-      } else{
-        decodeTextResult+=letter;
-      }
-  //     let ventanaCodificar = document.getElementById('resultado-codificado');
-  //     ventanaCodificar.value = decodeTextResult;
-
-          let resultado=document.getElementById('resultado-codificado');
-          resultado.disabled = true;
-          // console.log(resultado.value);
-
-          resultado.value = decodeTextResult;
+            let resultado=document.getElementById('resultado-codificado');
+            resultado.value = decodeTextResult;
+    }
   }
+
 }
 
-const decodificar = (text) => {
-    
-  const encodedArray = text.value.split('');
-  console.log(encodedArray);
+const decodificar = (text, offset) => {
   
-  let decodedTextResult = '';
+  console.log('tecleando en decodificar');
+  let chosenOffset = parseInt(offset.value);
+  const encodedArray = text.value.trim().split('');
+  console.log(encodedArray);
 
-  for (let letter of encodedArray){
+  if (encodedArray.length === 0){
+    console.log('Está vacio este array')
+    let empty=document.getElementById('resultado-codificado');
+    empty.value = '';
+  } else {
+  
+  console.log('si tiene elementos este array');
 
-      console.log(letter);
-      
-      let letterDecodedPosition = letter.charCodeAt(0);
-      console.log(letterDecodedPosition);
-      
-      let encodedFormula = (letterDecodedPosition - 65 - 33) % 26 + 65;
-      console.log('encoded Formula: ' + encodedFormula);
+  // if(chosenOffset < 0){
+  //   console.log('entramos')
+  //   console.log(chosenOffset);
+  //   chosenOffset *=  -1;
+  //   console.log(chosenOffset);
+  // }
 
-      let encodedLetter = String.fromCharCode(encodedFormula);
-      console.log(encodedLetter);
-      
-      decodedTextResult+=encodedLetter;
+  // TODO SI SE DEBE MODIFICAR
+    let decodeTextResult = '';
 
-  }    
+    for (let letter of encodedArray){
 
-  console.log(decodedTextResult);
+        let letterDecodedPosition = letter.charCodeAt(0);
 
-  let decodedWindow = document.getElementById('decoded');
-  decodedWindow.innerHTML = decodedTextResult; 
+        // Están consideradas solamente las letras que conforman el abecedario en mayúscula y en minúscula.
+
+        if (letterDecodedPosition >= 65 && letterDecodedPosition <= 90){
+          
+          // si la letra es mayúscula
+          let encodedFormula = (letterDecodedPosition - 65 + chosenOffset ) % 26 + 65;
+          let upperCaseLetter = String.fromCharCode(encodedFormula);
+          decodeTextResult+=upperCaseLetter;
+
+        } else if (letterDecodedPosition >= 97 && letterDecodedPosition <= 122){
+
+          // si la letra es minúscula
+          let encodedFormula = (letterDecodedPosition - 97 + chosenOffset ) % 26 + 97; //CODIFICAR
+          
+          let encodedLetter = String.fromCharCode(encodedFormula);
+          decodeTextResult+=encodedLetter;
+
+        } else{
+          decodeTextResult+=letter;
+        }
+
+            let resultado=document.getElementById('resultado-codificado');
+            resultado.value = decodeTextResult;
+    }
+  }
+
 }
 
 
