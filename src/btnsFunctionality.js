@@ -33,9 +33,6 @@ function changeToDecoded () {
    let tabEncoded = document.getElementById('tab-encoded');
    tabEncoded.innerHTML = 'Decodificado';
 
-//    let encodedOffset = document.getElementById('encoded-offset');
-//    encodedOffset.id = 'decoded-offset';
-
    let hideButtonsEncoded = document.getElementById('buttons-section-decoded-to-encoded');
    hideButtonsEncoded.classList.replace('shown','hidden');
 
@@ -50,16 +47,16 @@ function changeToDecoded () {
 
 }
 
-function encodedOffsetChanges (text, offset) {
-    console.log('Estamos cambiando el offset');
+// function encodedOffsetChanges (text, offset) {
+//     console.log('Estamos cambiando el offset');
 
-    cipher.codificar(text,offset);
+//     cipher.codificar(text,offset);
 
-}
+// }
 
 const functionalitiesEncodedToDecoded = {
     limpiarVentanaDecodificada,
-    encodedOffsetChanges,
+    // encodedOffsetChanges,
     changeToDecoded
 };
 
@@ -68,7 +65,7 @@ const functionalitiesEncodedToDecoded = {
 function limpiarVentanaCodificada () {
 
     const upperWindow = document.getElementById('ingresar-texto-codificado');
-    console.log(upperWindow.value);
+    // console.log(upperWindow.value);
     const lowerWindow = document.getElementById('resultado-decodificado');
     
     upperWindow.value='';
@@ -104,16 +101,16 @@ function changeToEncoded () {
 
 }
 
-function decodedOffsetChanges (text, offset) {
-    console.log('Estamos cambiando el offset');
+// function decodedOffsetChanges (text, offset) {
+//     console.log('Estamos cambiando el offset');
 
-    cipher.decodificar(text,offset);
+//     cipher.decodificar(text,offset);
 
-}
+// }
 
 const functionalitiesDecodedToEncoded = {
     limpiarVentanaCodificada,
-    decodedOffsetChanges,
+    // decodedOffsetChanges,
     changeToEncoded
 };
 
