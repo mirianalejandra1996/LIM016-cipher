@@ -1,44 +1,53 @@
 import cipher from './cipher.js';
-import {functionalitiesEncodedToDecoded,functionalitiesDecodedToEncoded} from './btnsFunctionality.js';
+import { functionalitiesEncodedToDecoded, functionalitiesDecodedToEncoded } from './btnsFunctionality.js';
 
 
 // Ventana decoded-to-encoded
-let enterDecodedInput = document.getElementById('ingresar-texto-decodificado');
-const decodedOffsetInput = document.getElementById('encoded-offset');
+let isEncode = true//puede tomar valores: 'codificar'o 'descodificar'
+let message = document.getElementById('texto');
+const offset = document.getElementById('encoded-offset');
 
-enterDecodedInput.addEventListener('input', () => {
+const codeOrEncode = () => {
+    let decodedTex = isEncode ? cipher.codificar(message, offset) : cipher.decodificar(message, offset)
     
-    let decodedText = cipher.codificar(enterDecodedInput,decodedOffsetInput);
+    let resultado = document.getElementById('resultado');
+    resultado.value = decodedTex;
+}
 
-    let resultadoCodificado = document.getElementById('resultado-codificado');
-    resultadoCodificado.value = decodedText;
+message.addEventListener('input', codeOrEncode);
+
+offset.addEventListener('input', codeOrEncode);
+
+
+const toggleBtn = document.getElementById('change-windows');
+
+toggleBtn.addEventListener('click', () => {
+    isEncode = !isEncode
+    console.log('isEncode: ', isEncode);
+    codeOrEncode()
+
+});
+
+const cleanInput = document.getElementById('clean-decoded-input');
+cleanInput.addEventListener('click', () => {
+    document.getElementById('texto').value = '';
+    document.getElementById('resultado').value = '';
+
+
 });
 
 
-const changeWindowsToDecoded = document.getElementById('change-windows-to-decoded');
-changeWindowsToDecoded.addEventListener('click', functionalitiesEncodedToDecoded.changeToDecoded);
-
-const cleanDecodedInput = document.getElementById('clean-decoded-input');
-cleanDecodedInput.addEventListener('click', functionalitiesEncodedToDecoded.limpiarVentanaDecodificada);
-
-decodedOffsetInput.addEventListener('input', () => {
-    
-    let decodedText = cipher.codificar(enterDecodedInput,decodedOffsetInput);
-
-    let resultado = document.getElementById('resultado-codificado');
-    resultado.value = decodedText;
-});
 // ----------------------------------
 
 
 // Ventana encoded-to-decoded
 
 // let enterEncodedInput = document.getElementById('ingresar-texto-codificado');
-const encodedOffsetInput = document.getElementById('decoded-offset');
+// const encodedOffsetInput = document.getElementById('decoded-offset');
 
 
 // enterEncodedInput.addEventListener('input', ()=>{
-    
+
 //     let encodedText = cipher.decodificar(enterEncodedInput,encodedOffsetInput);
 
 //     let resultadoDecodificado=document.getElementById('resultado-decodificado');
@@ -46,21 +55,21 @@ const encodedOffsetInput = document.getElementById('decoded-offset');
 
 // });
 
-const changeWindowsToEncoded = document.getElementById('change-windows-to-encoded');
-changeWindowsToEncoded.addEventListener('click', functionalitiesDecodedToEncoded.changeToEncoded);
+// const changeWindowsToEncoded = document.getElementById('change-windows-to-encoded');
+// changeWindowsToEncoded.addEventListener('click', functionalitiesDecodedToEncoded.changeToEncoded);
 
-const cleanEncodedInput = document.getElementById('clean-encoded-input');
-cleanEncodedInput.addEventListener('click', functionalitiesDecodedToEncoded.limpiarVentanaCodificada);
+// const cleanEncodedInput = document.getElementById('clean-encoded-input');
+// cleanEncodedInput.addEventListener('click', functionalitiesDecodedToEncoded.limpiarVentanaCodificada);
 
-encodedOffsetInput.addEventListener('input', () => {
-    
-    // console.log('inpuuuut');
+// encodedOffsetInput.addEventListener('input', () => {
 
-    // let decodedText = cipher.decodificar(enterEncodedInput,encodedOffsetInput);
+//     // console.log('inpuuuut');
 
-    // let resultadoCodificado = document.getElementById('resultado-codificado');
-    // resultadoCodificado.value = decodedText;
-});
+//     // let decodedText = cipher.decodificar(enterEncodedInput,encodedOffsetInput);
+
+//     // let resultadoCodificado = document.getElementById('resultado-codificado');
+//     // resultadoCodificado.value = decodedText;
+// });
 
 
 
