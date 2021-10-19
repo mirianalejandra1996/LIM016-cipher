@@ -71,12 +71,6 @@ body {
   position: relative;
 }
 
-#translator {
-  /* height: 100%; */
-  /* display: block; */
-  /* display: flex; */
-}
-
 .upper-window-main {
   height: 100%;
   width: 100%;
@@ -188,14 +182,6 @@ body {
   width: 30%;
 }
 
-/* .lower-btn-identifier-section {
-  z-index: 350;
-} */
-
-/* .upper-btn-identifier-section {
-  z-index: 350;
-} */
-
 /* Textarea Estilos */
 .text-area {
   resize: none;
@@ -211,13 +197,11 @@ body {
   height: 100%;
 }
 
-#ingresar-texto-decodificado,
-#ingresar-texto-codificado {
+#texto {
   height: 45%;
 }
 
-#ingresar-texto-decodificado::placeholder,
-#ingresar-texto-codificado::placeholder {
+#texto::placeholder {
   color: #000;
   font-family: "Roboto";
   font-weight: 300;
@@ -227,8 +211,7 @@ body {
 }
 
 /* Seccion Inferior de Botones (diversas opciones) */
-#buttons-section-decoded-to-encoded,
-#buttons-section-encoded-to-decoded {
+#buttons-section {
   margin: 10px auto;
   width: 350px;
   justify-content: center;
@@ -245,13 +228,4 @@ body {
 .input-btn {
   position: absolute;
   z-index: 400;
-}
-
-/* Mostrar y ocultar ventanas (en este caso los botones) */
-.shown {
-  display: flex;
-}
-
-.hidden {
-  display: none;
 }

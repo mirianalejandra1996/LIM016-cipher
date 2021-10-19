@@ -5,20 +5,17 @@
   </head>
   <body>
     <div class="container">
-      <!-- Ventana decoded-to-encoded -->
-      <div id="translator-decoded-to-encoded" class="shown">
+      <div id="translator">
+
         <!-- Ventana Superior -->
         <div class="upper-window-main">
           <div class="div-back-tab rounded-square tab">
-            <span id="tab-decoded">Decodificado</span>
+            <span id="upper-tab">Decodificado</span>
           </div>
 
           <div class="btn-circle identifier-btn-section">
             <div class="icon">
-              <span
-                id="upper-btn-identifier-section"
-                class="icon-a-letter-icon"
-              ></span>
+              <span id="upper-btn" class="icon-a-letter-icon"></span>
             </div>
           </div>
 
@@ -37,15 +34,12 @@
         <!-- Ventana Inferior -->
         <div class="lower-window-main">
           <div class="div-front-tab rounded-square tab">
-            <span id="tab-encoded">Codificado</span>
+            <span id="lower-tab">Codificado</span>
           </div>
 
           <div class="btn-circle identifier-btn-section">
             <div class="icon">
-              <span
-                id="lower-btn-identifier-section"
-                class="icon-chinese-letter-icon"
-              ></span>
+              <span id="lower-btn" class="icon-chinese-letter-icon"></span>
             </div>
           </div>
 
@@ -64,134 +58,34 @@
           </div>
         </div>
       </div>
-
-      <!-- Ventana encoded-to-decoded -->
-      <!-- <div id="translator-decoded-to-encoded" class="shown">
-        <div class="upper-window-main">
-          <div class="div-back-tab rounded-square tab">
-            <span id="tab-decoded">Codificado</span>
-          </div>
-
-          <div class="btn-circle identifier-btn-section">
-            <div class="icon">
-              <span
-                id="upper-btn-identifier-section"
-                class="icon-chinese-letter-icon"
-              ></span>
-            </div>
-          </div>
-
-          <div class="sub-window-upper rounded-square">
-            <textarea
-              id="ingresar-texto-codificado"
-              class="text-area"
-              name=""
-              placeholder="Ingresa tu mensaje aquí..."
-              cols="30"
-              rows="10"
-              spellcheck="false"
-            ></textarea>
-          </div>
-        </div>
-
-        <div class="lower-window-main">
-          <div class="div-front-tab rounded-square tab">
-            <span id="tab-encoded">Decodificado</span>
-          </div>
-
-          <div class="btn-circle identifier-btn-section">
-            <div class="icon">
-              <span
-                id="lower-btn-identifier-section"
-                class="icon-a-letter-icon"
-              ></span>
-            </div>
-          </div>
-
-          <div class="sub-window-lower rounded-square">
-            <div style="background-color: transparent; box-sizing: border-box">
-              <textarea
-                id="resultado-decodificado"
-                class="text-area"
-                name=""
-                cols="30"
-                rows="10"
-                disabled="disabled"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- Finalizaron las ventanas -->
     </div>
 
     <!-- ------SECCION BOTONES------------------- -->
-
-    <!-- Sección botones decoded to encoded -->
-    <div id="buttons-section-decoded-to-encoded" class="shown">
+    <div style="display: flex; justify-content: center">
       <!-- limpiar -->
-      <div id="clean-decoded-input" class="btn-circle option-button">
-        <div class="icon" >
-          <span class="icon-broom-icon" ></span>
-        </div>
-      </div>
-<!-- cambiar -->
-      <div id="change-windows" class="btn-circle option-button">
-        <div class="icon">
-          <span class="icon-to-decoded-icon-bigger"></span>
-        </div>
-      </div>
-<!-- offset -->
-      <div id="offset-container" class="option-button">
-        <div id="offset-input-element">
-          <input
-            id="encoded-offset"
-            class="offset-input-element"
-            type="number"
-            min="-25"
-            max="25"
-            value="0"
-          />
-        </div>
-
-        <div class="btn-circle input-btn">
-          <div class="icon">
-            <span class="icon-padlock-icon"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección botones encoded to decoded -->
-    <div
-      id="buttons-section-encoded-to-decoded"
-      style="background-color: aquamarine"
-      class="hidden"
-    >
-      <div id="clean-encoded-input" class="btn-circle option-button">
+      <div id="clean" class="btn-circle option-button">
         <div class="icon">
           <span class="icon-broom-icon"></span>
         </div>
       </div>
 
-      <div id="change-windows-to-encoded" class="btn-circle option-button">
+      <!-- cambiar -->
+      <div id="change-windows" class="btn-circle option-button">
         <div class="icon">
           <span class="icon-to-decoded-icon-bigger"></span>
         </div>
       </div>
 
+      <!-- offset -->
       <div id="offset-container" class="option-button">
-        <div id="offset-input-element">
-          <input
-            class="offset-input-element"
-            id="decoded-offset"
-            type="number"
-            min="-25"
-            max="25"
-            value="0"
-          />
-        </div>
+        <input
+          id="offset"
+          class="offset-input-element"
+          type="number"
+          min="-25"
+          max="25"
+          value="0"
+        />
 
         <div class="btn-circle input-btn">
           <div class="icon">
