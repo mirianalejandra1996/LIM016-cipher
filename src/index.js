@@ -3,36 +3,36 @@ import cipher from './cipher.js';
 // Ventana decoded-to-encoded
 
 let isEncode = true //puede tomar valores: 'codificar'o 'descodificar'
-let message = document.getElementById('texto');
-const offset = document.getElementById('offset');
+
+let translateBtn = document.getElementById('translate');
 
 const codeOrEncode = () => {
 
-    let decodedTex = isEncode ? cipher.codificar(message, offset) : cipher.decodificar(message, offset);
+    let message = document.getElementById('texto').value;
+    let offset = document.getElementById('offset').value;
+
+    let decodedTex = isEncode ? cipher.encode(offset,message) : cipher.decode(offset,message);
     
     let resultado = document.getElementById('resultado');
     resultado.value = decodedTex;
 }
 
-message.addEventListener('input', codeOrEncode);
+// message.addEventListener('input', codeOrEncode);
+translateBtn.addEventListener('click', codeOrEncode);
 
-offset.addEventListener('input', codeOrEncode);
+// offset.addEventListener('input', codeOrEncode);
 
 
 const toggleBtn = document.getElementById('change-windows');
 
 toggleBtn.addEventListener('click', () => {
     isEncode = !isEncode;
-    // console.log('isEncode: ', isEncode);
     
     let upperBtn = document.getElementById('upper-btn');
     let lowerBtn = document.getElementById('lower-btn');
 
     let lowerTab = document.getElementById('lower-tab');
     let upperTab = document.getElementById('upper-tab');
-
-    message.value = '';
-    offset.value = 0;
 
     if (isEncode){
         upperBtn.className = 'icon-a-letter-icon';
@@ -46,15 +46,22 @@ toggleBtn.addEventListener('click', () => {
         lowerTab.innerHTML = 'Decodificado';
     }
 
-    codeOrEncode();
+    // codeOrEncode();
+    cleanCiphaer();
 
 });
 
-const cleanInput = document.getElementById('clean');
+const cleanInputs = document.getElementById('clean');
 
-cleanInput.addEventListener('click', () => {
+const cleanCiphaer = () => {
     document.getElementById('texto').value = '';
     document.getElementById('resultado').value = '';
+}
 
+cleanInputs.addEventListener('click', cleanCiphaer);
 
-});
+// cleanInputs.addEventListener('click', () => {
+//     document.getElementById('texto').value = '';
+//     document.getElementById('resultado').value = '';
+
+// });

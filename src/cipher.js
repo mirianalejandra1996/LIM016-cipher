@@ -1,21 +1,25 @@
-function codificar (text, offset) {
-  
-  console.log('tecleando en codificar');
-  console.log(offset.value);
-  let chosenOffset = parseInt(offset.value);
-  const encodedArray = text.value.trim().split('');
-  console.log(encodedArray);
+function encode (offset,text) {
 
-  if (encodedArray.length === 0){
-    console.log('Está vacio este array')
-    return '';
-  } else {
+  let chosenOffset = Number(offset % 26 + 26 ) % 26;
+  const decodedArray = text.split('');
   
-  console.log('si tiene elementos este array');
+  try {
+    if(chosenOffset == "")  throw new Error("Por favor ingrese un valor");
+    if(isNaN(chosenOffset)) throw new Error ("El valor ingresado no es de tipo numérico");
+    chosenOffset = Number(chosenOffset);
+    if(chosenOffset === 0) throw new Error("El valor no puede ser cero")
+    if(chosenOffset > 33)   throw new Error("El valor es muy alto");
+    if(chosenOffset === null )   throw new Error("El valor es muy alto");
+    if(decodedArray.length === 0) throw new Error ("El mensaje ingresado está vacio");
+  }
+  catch(err) {
+    return err;
+  }
+
 
     let encodedTextResult = '';
     // ! NO TOCAR
-    for (let letter of encodedArray){
+    for (let letter of decodedArray){
 
         let letterDecodedPosition = letter.charCodeAt(0);
 
@@ -41,72 +45,68 @@ function codificar (text, offset) {
         }
 
       }
-      
+    
     return encodedTextResult;
-  }
 
 }
 
-function decodificar (text, offset) {
-  
-  console.log('tecleando en decodificar');
-  
-  console.log(offset.value);
-  let chosenOffset = parseInt(offset.value);
-  const encodedArray = text.value.trim().split('');
-  console.log(encodedArray);
 
-  if (encodedArray.length === 0){
-    console.log('Está vacio este array')
-    return '';
-  } else {
+function decode (offset, text) {
   
-  console.log('si tiene elementos este array');
+  let chosenOffset = Number(offset % 26 - 26 ) % 26;
+  const encodedArray = text.split('');
 
-  let encodedTextResult = '';
-  // ! NO TOCAR
+  try {
+    if(chosenOffset == "")  throw new Error("Por favor ingrese un valor en el offset");
+    if(isNaN(chosenOffset)) throw new Error ("El valor ingresado no es de tipo numérico");
+    chosenOffset = Number(chosenOffset);
+    if(chosenOffset === 0) throw new Error("El valor no puede ser cero")
+    if(chosenOffset > 33)   throw new Error("El valor es muy alto");
+    if(chosenOffset === null )   throw new Error("El valor es muy alto");
+    if(encodedArray.length === 0) throw new Error ("El mensaje ingresado está vacio");
+  }
+  catch(err) {
+    console.log(err);
+  }
+
+  let decodedTextResult = '';
+
   for (let letter of encodedArray){
 
-      let letterDecodedPosition = letter.charCodeAt(0);
-
-      console.log(`la letra ${letter} está en la posición ${letterDecodedPosition}`);
+      let letterEncodedPosition = letter.charCodeAt(0);
 
       // Están consideradas solamente las letras que conforman el abecedario en mayúscula y en minúscula.
 
-      if (letterDecodedPosition >= 65 && letterDecodedPosition <= 90){
+      if (letterEncodedPosition >= 65 && letterEncodedPosition <= 90){
         
         // si la letra es mayúscula
 
-        let decodedFormula = (letterDecodedPosition - 65 + (26 - chosenOffset )) % 26 + 65;
+        let decodedFormula = (letterEncodedPosition - 65 + (26 - chosenOffset )) % 26 + 65;
         let upperCaseLetter = String.fromCharCode(decodedFormula);
 
-        console.log(`La letra ${upperCaseLetter} está en la posición ${upperCaseLetter.charCodeAt(0)}`);
-        encodedTextResult+=upperCaseLetter;
+        decodedTextResult+=upperCaseLetter;
         
 
-      } else if (letterDecodedPosition >= 97 && letterDecodedPosition <= 122){
+      } else if (letterEncodedPosition >= 97 && letterEncodedPosition <= 122){
 
         // si la letra es minúscula
-        let decodedFormula = (letterDecodedPosition - 97 + (26 - chosenOffset ) ) % 26 + 97; //CODIFICAR
+        let decodedFormula = (letterEncodedPosition - 97 + (26 - chosenOffset ) ) % 26 + 97;
         
-        let encodedLetter = String.fromCharCode(decodedFormula);
-        encodedTextResult+=encodedLetter;
+        let decodedLetter = String.fromCharCode(decodedFormula);
+        decodedTextResult+=decodedLetter;
 
       } else{
-        encodedTextResult+=letter;
+        decodedTextResult+=letter;
       }
 
-      // console.log(`la letra ${letter} está en la posición ${letterDecodedPosition} y se traduce a ${encodedLetter} en la posición ${encodedLetter.charCodeAt(0)}`);
-  
   }
-  return encodedTextResult;
-  }
+  return decodedTextResult;
 }
 
 
 const cipher = {
-  codificar,
-  decodificar
+  encode,
+  decode
 };
 
 export default cipher;

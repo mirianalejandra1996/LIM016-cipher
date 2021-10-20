@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>Cipher Caesar</title>
   </head>
   <body>
     <div class="container">
       <div id="translator">
-
         <!-- Ventana Superior -->
         <div class="upper-window-main">
           <div class="div-back-tab rounded-square tab">
@@ -44,12 +45,11 @@
           </div>
 
           <div class="sub-window-lower rounded-square">
-            <div style="background-color: transparent; box-sizing: border-box">
+            <div style="width: 100%; height: 100%">
               <textarea
                 id="resultado"
                 class="text-area"
                 name=""
-                id=""
                 cols="30"
                 rows="10"
                 disabled="disabled"
@@ -61,7 +61,16 @@
     </div>
 
     <!-- ------SECCION BOTONES------------------- -->
-    <div style="display: flex; justify-content: center">
+    <div style="display: flex; justify-content: center; margin-top: 75px">
+      <!-- traducir -->
+
+      <div id="translate" class="btn-circle option-button">
+        <div class="icon">
+          <!-- <span class="icon-broom-icon"></span> -->
+          <span class="icon-play-svgrepo-com"></span>
+        </div>
+      </div>
+
       <!-- limpiar -->
       <div id="clean" class="btn-circle option-button">
         <div class="icon">
@@ -83,7 +92,7 @@
           class="offset-input-element"
           type="number"
           min="-25"
-          max="25"
+          max="35"
           value="0"
         />
 
