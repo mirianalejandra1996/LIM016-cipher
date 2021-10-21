@@ -1,7 +1,5 @@
 import cipher from './cipher.js';
 
-// Ventana decoded-to-encoded
-
 let isEncode = true //puede tomar valores: 'codificar'o 'descodificar'
 
 let translateBtn = document.getElementById('translate');
@@ -51,6 +49,7 @@ toggleBtn.addEventListener('click', () => {
 
 });
 
+// Limpiar ventanas
 const cleanInputs = document.getElementById('clean');
 
 const cleanCiphaer = () => {
@@ -60,8 +59,57 @@ const cleanCiphaer = () => {
 
 cleanInputs.addEventListener('click', cleanCiphaer);
 
-// cleanInputs.addEventListener('click', () => {
-//     document.getElementById('texto').value = '';
-//     document.getElementById('resultado').value = '';
 
-// });
+// Botón de instrucciones
+let btnInstructions = document.getElementById('instructions');
+
+let overlay = document.getElementById('overlay');
+let popup = document.getElementById('popup');
+let btnClose = document.getElementById('btn-close');
+let btnUnderstood = document.getElementById('understood');
+
+
+btnInstructions.addEventListener('click', () => {
+    overlay.classList.add('active');
+    popup.classList.add('active');
+    // btnClose.classList.add('active');
+})
+
+btnClose.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup.classList.remove('active');
+    // btnClose.classList.remove('active');
+})
+
+btnUnderstood.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup.classList.remove('active');
+    // btnClose.classList.remove('active');
+})
+
+
+// Botón de copiar
+let btnCopy = document.getElementById('copy');
+
+btnCopy.addEventListener('click', () => {
+    
+    let resultado = document.getElementById('resultado');
+    let inputOculto = document.createElement('input');
+    inputOculto.value = resultado.value;
+    inputOculto.setAttribute('value', resultado.value);
+
+
+    document.body.appendChild(inputOculto);
+    inputOculto.select();
+    document.execCommand('copy');
+
+    document.body.removeChild(inputOculto);
+    
+
+    console.log(inputOculto);
+
+    
+    
+
+})
+

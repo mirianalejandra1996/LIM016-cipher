@@ -7,17 +7,24 @@ body {
   padding: 50px;
   box-sizing: border-box;
   font-family: "Roboto";
+  background: rgb(251, 251, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 251, 251, 1) 0%,
+    rgba(255, 255, 255, 1) 100%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 /* Fonts icons */
 
 @font-face {
   font-family: "icomoon";
-  src: url("fonts/icomoon.eot?d2i2ib");
-  src: url("fonts/icomoon.eot?d2i2ib#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?d2i2ib") format("truetype"),
-    url("fonts/icomoon.woff?d2i2ib") format("woff"),
-    url("fonts/icomoon.svg?d2i2ib#icomoon") format("svg");
+  src: url("fonts/icomoon.eot?n3wt4b");
+  src: url("fonts/icomoon.eot?n3wt4b#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?n3wt4b") format("truetype"),
+    url("fonts/icomoon.woff?n3wt4b") format("woff"),
+    url("fonts/icomoon.svg?n3wt4b#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -39,6 +46,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-copy-svgrepo-com-1:before {
+  content: "\e907";
+}
+.icon-copy-svgrepo-com:before {
+  content: "\e908";
+}
+.icon-close-svgrepo-com:before {
+  content: "\e909";
+}
 .icon-play-svgrepo-com:before {
   content: "\e906";
 }
@@ -61,10 +77,23 @@ body {
   content: "\e905";
 }
 
+#header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 20px;
+  text-align: center;
+}
+
+#header h1 {
+  font-size: 55px;
+  margin-bottom: 5px;
+}
+
 .container {
   height: 350px;
   width: 530px;
-  margin: 100px auto 20px;
+  margin: 55px auto 20px;
   position: relative;
 }
 
@@ -83,6 +112,9 @@ body {
   z-index: 200;
 }
 
+.windowTransition {
+}
+
 .div-back-tab {
   background-color: #ffb4a2;
   height: 100px;
@@ -99,6 +131,26 @@ body {
   left: 0;
   z-index: 250;
   box-sizing: border-box;
+}
+
+.copy {
+  /* background-color: #973b24; */
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+  z-index: 1000000000000000;
+  box-sizing: border-box;
+}
+
+.copy .icon span {
+  font-size: 30px;
+  color: #ffcdb2;
+}
+
+.copy .icon span:hover {
+  font-size: 30px;
+  color: #ffdecc;
+  transition: 0.3s ease all;
 }
 
 .sub-window-upper {
@@ -132,7 +184,7 @@ body {
 }
 
 .large-btn {
-  width: 130px;
+  width: 135px;
   height: 40px;
   border: none;
   outline: none;
@@ -144,6 +196,11 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.large-btn:hover {
+  background: #fdd5bf;
+  transition: 0.3s ease all;
 }
 
 /* Estilos de diseño */
@@ -165,6 +222,11 @@ body {
   text-decoration: none;
 }
 
+.btn-circle:hover {
+  background: #fdd5bf;
+  transition: 0.3s ease all;
+}
+
 .icon {
   color: #000;
 }
@@ -184,6 +246,7 @@ body {
   top: -20px;
   right: -20px;
   z-index: 350;
+  cursor: context-menu;
 }
 
 .tab {
@@ -238,4 +301,89 @@ body {
 .input-btn {
   position: absolute;
   z-index: 400;
+}
+
+/* ventana de instrucciones*/
+.overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* position: fixed; */
+  /* position: absolute; */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  /* transition: all 500ms ease; */
+}
+
+.overlay.active {
+  visibility: visible;
+}
+
+.popup {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 420px;
+  height: 370px;
+  /* transition: 0.3s ease all; */
+  opacity: 1;
+  justify-content: center;
+  /* transform: scale(0.7); */
+  /* position: fixed; */
+}
+
+.popup .icon-close {
+  font-size: 16px;
+  line-height: 16px;
+  display: block;
+  text-align: right;
+  color: #bbb;
+  transition: 0.3s ease all;
+}
+
+.popup .icon-close:hover {
+  color: #000;
+}
+
+.popup h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  /* opacity: 0; */
+}
+
+.popup p {
+  text-align: left;
+  margin-top: 5px;
+  line-height: 23px;
+  margin-left: 10px;
+}
+
+.popup p span {
+  color: #1b1b1b;
+  margin: 0 5px;
+}
+
+#understood {
+  margin-top: 25px;
+  /* margin-bottom: 10px; */
+}
+
+/* animaciones */
+.popup .active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ----Scrollbar de los textareas */
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: red;
 }

@@ -4,7 +4,7 @@ function encode (offset,text) {
   const decodedArray = text.split('');
   
   try {
-    if(chosenOffset == "")  throw new Error("Por favor ingrese un valor");
+    if(chosenOffset == "")  throw new Error("Por favor ingrese un valor para el desplazamiento");
     if(isNaN(chosenOffset)) throw new Error ("El valor ingresado no es de tipo numérico");
     chosenOffset = Number(chosenOffset);
     if(chosenOffset === 0) throw new Error("El valor no puede ser cero")

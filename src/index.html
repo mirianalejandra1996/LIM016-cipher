@@ -6,6 +6,13 @@
     <title>Cipher Caesar</title>
   </head>
   <body>
+    <header id="header">
+      <h1 class="titulos">Cifrado Cesar</h1>
+      <!-- <h2 class="titulos">
+        Codifica y decodifica cualquier mensaje que desees
+      </h2> -->
+    </header>
+
     <div class="container">
       <div id="translator">
         <!-- Ventana Superior -->
@@ -20,7 +27,7 @@
             </div>
           </div>
 
-          <div class="sub-window-upper rounded-square">
+          <div id="upper" class="sub-window-upper rounded-square">
             <textarea
               id="texto"
               class="text-area"
@@ -36,6 +43,12 @@
         <div class="lower-window-main">
           <div class="div-front-tab rounded-square tab">
             <span id="lower-tab">Codificado</span>
+          </div>
+
+          <div class="copy">
+            <div class="icon">
+              <span id="copy" class="icon-copy-svgrepo-com-1"></span>
+            </div>
           </div>
 
           <div class="btn-circle identifier-btn-section">
@@ -70,7 +83,6 @@
       <!-- traducir -->
       <div id="translate" class="btn-circle option-button">
         <div class="icon">
-          <!-- <span class="icon-broom-icon"></span> -->
           <span class="icon-play-svgrepo-com"></span>
         </div>
       </div>
@@ -108,13 +120,45 @@
       </div>
     </div>
 
-    <div id="overlay">
-      <div id="popup">
-        <div class="icon-instructions">
-          <span class="icon-broom-icon"></span>
+    <div id="overlay" class="overlay">
+      <div id="popup" class="popup">
+        <div id="btn-close" class="icon-close">
+          <span class="icon-close-svgrepo-com"></span>
+        </div>
+        <h3>Instrucciones de uso</h3>
+
+        <div>
+          <p>1. Ingresa tu mensaje.</p>
+          <p>
+            2. Selecciona el nivel de seguridad en el
+            <span class="icon-padlock-icon"></span>.
+          </p>
+          <p>
+            3. Presiona el botón
+            <span class="icon-play-svgrepo-com"></span> para codificar o
+            decodificar el mensaje.
+          </p>
+          <p>
+            4. Si deseas codificar, presiona el botón
+            <span class="icon-to-decoded-icon-bigger"></span> para ir a la
+            ventana. Puedes volver a la ventana decodificar al presionar de
+            nuevo el botón.
+          </p>
+          <p>
+            5. Puedes copiar tu mensaje en el
+            <span class="icon-copy-svgrepo-com-1"></span>.
+          </p>
+          <p>
+            6. Para limpiar ventanas, presiona en el botón
+            <span class="icon-broom-icon"></span>.
+          </p>
+        </div>
+        <div id="understood" class="large-btn">
+          <span>¡Entendido!</span>
         </div>
       </div>
     </div>
+
     <script src="index.js" type="module"></script>
   </body>
 </html>
