@@ -131,6 +131,21 @@ body {
   padding-left: 45px;
 }
 
+.large-btn {
+  width: 130px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #ffcdb2;
+  border-radius: 50px;
+  text-align: center;
+  /* padding-left: 45px; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 /* Estilos de diseño */
 .rounded-square {
   border-radius: 30px;
