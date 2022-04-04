@@ -2,6 +2,7 @@ function encode (offset,text) {
 
   let chosenOffset = Number(offset % 26 + 26 ) % 26;
   const decodedArray = text.split('');
+  console.log(chosenOffset);
   
   try {
     if(chosenOffset == "")  throw new Error("Por favor ingrese un valor para el desplazamiento");
@@ -9,7 +10,7 @@ function encode (offset,text) {
     chosenOffset = Number(chosenOffset);
     if(chosenOffset === 0) throw new Error("El valor no puede ser cero")
     if(chosenOffset > 33)   throw new Error("El valor es muy alto");
-    if(chosenOffset === null )   throw new Error("El valor es muy alto");
+    if(chosenOffset === null )   throw new Error("Por favor ingresa un dato");
     if(decodedArray.length === 0) throw new Error ("El mensaje ingresado está vacio");
   }
   catch(err) {

@@ -21,7 +21,7 @@ describe('cipher', () => {
     it('should throw TypeError when invoked with wrong argument types', () => {
       expect(() => cipher.encode()).toThrow(TypeError);
       expect(() => cipher.encode(0)).toThrow(TypeError);
-      expect(() => cipher.encode(null, [])).toThrow(TypeError);
+      expect(() => cipher.encode(null,[])).toThrow(TypeError);
       expect(() => cipher.encode(0, 0)).toThrow(TypeError);
     });
 
