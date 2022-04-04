@@ -1,26 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   padding: 50px;
   box-sizing: border-box;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 /* Fonts icons */
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?qms554');
-  src:  url('fonts/icomoon.eot?qms554#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?qms554') format('truetype'),
-    url('fonts/icomoon.woff?qms554') format('woff'),
-    url('fonts/icomoon.svg?qms554#icomoon') format('svg');
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?qms554");
+  src: url("fonts/icomoon.eot?qms554#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?qms554") format("truetype"),
+    url("fonts/icomoon.woff?qms554") format("woff"),
+    url("fonts/icomoon.svg?qms554#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: "icomoon" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -58,23 +64,27 @@ body {
   content: "\e907";
 }
 
-
-.contenedor {
+.container {
   height: 350px;
   width: 530px;
   margin: 100px auto 20px;
   position: relative;
-  /* display: none; */
 }
 
-.ventana-decodificada {
+#translator {
+  /* height: 100%; */
+  /* display: block; */
+  /* display: flex; */
+}
+
+.upper-window-main {
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: 100;
 }
 
-.ventana-codificada {
+.lower-window-main {
   height: 40%;
   width: 100%;
   position: absolute;
@@ -82,9 +92,8 @@ body {
   z-index: 200;
 }
 
-.div-front-tab {
+.div-back-tab {
   background-color: #ffb4a2;
-  /* width: 30%; */
   height: 100px;
   position: absolute;
   left: 0;
@@ -92,42 +101,54 @@ body {
   box-sizing: border-box;
 }
 
-.sub-ventana-codificada {
+.div-front-tab {
+  background-color: #ffb4a2;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  z-index: 250;
+  box-sizing: border-box;
+}
+
+.sub-window-upper {
+  background-color: #b5838d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  box-sizing: border-box;
+  padding: 25px 20px;
+}
+
+.sub-window-lower {
   background-color: #e5989b;
   position: relative;
   width: 100%;
   height: 100%;
   z-index: 300;
-  /* padding: 10px; */
+  box-sizing: border-box;
   padding: 25px 20px;
-  box-sizing: border-box;
 }
 
-.div-back-tab {
-  background-color: #ffb4a2;
-  /* width: 30%; */
-  height: 100px;
-  position: absolute;
-  left: 0;
-  z-index: 250;
-  box-sizing: border-box;
-}
-
-.sub-ventana-decodificada {
-  background-color: #B5838D;
-  position: relative;
-  width: 100%;
+.offset-input-element {
   height: 100%;
-  z-index: 300;
-  box-sizing: border-box;
-  padding: 25px 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: #fbfafa;
+  border-radius: 50px;
+  position: absolute;
+  text-align: center;
+  padding-left: 45px;
 }
 
-.rounded-square{
+/* Estilos de diseño */
+.rounded-square {
   border-radius: 30px;
 }
 
-.btn-circle{
+/* Estilos de los botones */
+.btn-circle {
   background: #ffcdb2;
   width: 40px;
   height: 40px;
@@ -140,101 +161,64 @@ body {
   text-decoration: none;
 }
 
-.icon{
-  color:#000;
+.icon {
+  color: #000;
 }
 
-.btn-circle .icon span{
+.btn-circle .icon span {
   font-size: 20px;
 }
 
-.option-button{
+/* Distancia entre los botones */
+.option-button {
   margin: 0 20px;
 }
 
-#offset-container{
-  position: relative;
-  width: 90px;
-  z-index: 300;
-}
-
-.input-btn{
-  position: absolute;
-  z-index: 400;
-}
-
-.offset-input-element{
-  height: 100%;
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: #FBFAFA;
-  border-radius: 50px;
-  position: absolute;
-  text-align: center;
-  padding-left: 45px;
-}
-
-.identifier-btn{
+/* Elementos de cada Ventana */
+.identifier-btn-section {
   position: absolute;
   top: -20px;
   right: 15px;
-}
-
-.boton-ojo-hidden-container {
   z-index: 350;
 }
 
-.boton-ojo-opened-container {
-  z-index: 350;
+.tab {
+  top: -45px;
+  padding: 15px 20px;
+  width: 30%;
 }
 
+/* .lower-btn-identifier-section {
+  z-index: 350;
+} */
+
+/* .upper-btn-identifier-section {
+  z-index: 350;
+} */
+
+/* Textarea Estilos */
 .text-area {
   resize: none;
   outline: none;
   border: none;
-  background: transparent;
+  background: none;
   padding: 10px;
   width: 100%;
-  height: 20px;
-}
-
-
-.boton-traducir {
-  width: 30px;
-  height: 30px;
-  background-color: #ffcdb2;
-  border-radius: 50%;
-  text-align: center;
-}
-
-#seccion-botones-codifica{
-    margin: 10px auto;
-    width: 350px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.lower-window{
-  padding: 10px;
-  width: 100%;
-  height: 100%;
-  font-family: 'Roboto';
-  color: #000;
-}
-
-#ingresar-texto-decodificado{
   padding: 10px;
   color: #000;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 14px;
-  /* background-color: aqua; */
+  height: 100%;
+}
+
+#ingresar-texto-decodificado,
+#ingresar-texto-codificado {
   height: 45%;
 }
 
-#ingresar-texto-decodificado::placeholder{
-  color:#000;
+#ingresar-texto-decodificado::placeholder,
+#ingresar-texto-codificado::placeholder {
+  color: #000;
   font-family: "Roboto";
   font-weight: 300;
   font-style: italic;
@@ -242,14 +226,32 @@ body {
   font-size: 14px;
 }
 
-.tab{
-  top:-45px;
-  padding: 15px 20px;
-  width: 30%;
+/* Seccion Inferior de Botones (diversas opciones) */
+#buttons-section-decoded-to-encoded,
+#buttons-section-encoded-to-decoded {
+  margin: 10px auto;
+  width: 350px;
+  justify-content: center;
+  width: 100%;
 }
 
-/* .format-window{
-  padding: 25px 20px;
-  height: 45%;
-  background-color: antiquewhite;
-} */
+/* Botón + input del offset */
+#offset-container {
+  position: relative;
+  width: 90px;
+  z-index: 300;
+}
+
+.input-btn {
+  position: absolute;
+  z-index: 400;
+}
+
+/* Mostrar y ocultar ventanas (en este caso los botones) */
+.shown {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
