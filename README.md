@@ -58,7 +58,7 @@ Se tomó en cuenta al público dirigido para crear la pantalla basada en una pal
 Tendrá dos secciones que cambiarán de posición según lo que el usuario desee realizar (encriptar o desencriptar un mensaje) en la parte superior indicará con un icono
 en cómo se des/encriptará el mensaje, y en la parte inferior tendrá la opción de definir el offset (nivel de desplazamiento) y en caso que desee borrar algún mensaje muy largo, podrá acceder al botón de la escobilla para una limpieza más rápida.
 
-Además se consideró hacer algunas modificaciones para generar una mejor experiencia como un botón para traducir, y un botón de copiar el texto generado.
+Además se consideró hacer algunas modificaciones para generar una mejor experiencia como un botón para traducir, un botón de copiar el texto generado y modificar algunos iconos para que la interfaz sea más intuitiva.
 
 Estas son las vistas:
 
