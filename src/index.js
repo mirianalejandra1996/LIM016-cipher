@@ -1,74 +1,115 @@
 import cipher from './cipher.js';
-import {functionalitiesEncodedToDecoded,functionalitiesDecodedToEncoded} from './btnsFunctionality.js';
 
+let isEncode = true //puede tomar valores: 'codificar'o 'descodificar'
 
-// Ventana decoded-to-encoded
-let enterDecodedInput = document.getElementById('ingresar-texto-decodificado');
-const decodedOffsetInput = document.getElementById('encoded-offset');
+let translateBtn = document.getElementById('translate');
 
-enterDecodedInput.addEventListener('input', () => {
+const codeOrEncode = () => {
+
+    let message = document.getElementById('texto').value;
+    let offset = document.getElementById('offset').value;
+
+    let decodedTex = isEncode ? cipher.encode(offset,message) : cipher.decode(offset,message);
     
-    let decodedText = cipher.codificar(enterDecodedInput,decodedOffsetInput);
+    let resultado = document.getElementById('resultado');
+    resultado.value = decodedTex;
+}
 
-    let resultadoCodificado = document.getElementById('resultado-codificado');
-    resultadoCodificado.value = decodedText;
+// message.addEventListener('input', codeOrEncode);
+translateBtn.addEventListener('click', codeOrEncode);
+
+// offset.addEventListener('input', codeOrEncode);
+
+
+const toggleBtn = document.getElementById('change-windows');
+
+toggleBtn.addEventListener('click', () => {
+    isEncode = !isEncode;
+    
+    let upperBtn = document.getElementById('upper-btn');
+    let lowerBtn = document.getElementById('lower-btn');
+
+    let lowerTab = document.getElementById('lower-tab');
+    let upperTab = document.getElementById('upper-tab');
+
+    if (isEncode){
+        upperBtn.className = 'icon-a-letter-icon';
+        lowerBtn.className = 'icon-chinese-letter-icon';
+        upperTab.innerHTML = 'Decodificado';
+        lowerTab.innerHTML = 'Codificado';
+    } else {
+        upperBtn.className = 'icon-chinese-letter-icon';
+        lowerBtn.className = 'icon-a-letter-icon';
+        upperTab.innerHTML = 'Codificado';
+        lowerTab.innerHTML = 'Decodificado';
+    }
+
+    // codeOrEncode();
+    cleanCiphaer();
+
 });
 
+// Limpiar ventanas
+const cleanInputs = document.getElementById('clean');
 
-const changeWindowsToDecoded = document.getElementById('change-windows-to-decoded');
-changeWindowsToDecoded.addEventListener('click', functionalitiesEncodedToDecoded.changeToDecoded);
+const cleanCiphaer = () => {
+    document.getElementById('texto').value = '';
+    document.getElementById('resultado').value = '';
+}
 
-const cleanDecodedInput = document.getElementById('clean-decoded-input');
-cleanDecodedInput.addEventListener('click', functionalitiesEncodedToDecoded.limpiarVentanaDecodificada);
+cleanInputs.addEventListener('click', cleanCiphaer);
 
-decodedOffsetInput.addEventListener('input', () => {
+
+// Botón de instrucciones
+let btnInstructions = document.getElementById('instructions');
+
+let overlay = document.getElementById('overlay');
+let popup = document.getElementById('popup');
+let btnClose = document.getElementById('btn-close');
+let btnUnderstood = document.getElementById('understood');
+
+
+btnInstructions.addEventListener('click', () => {
+    overlay.classList.add('active');
+    popup.classList.add('active');
+    // btnClose.classList.add('active');
+})
+
+btnClose.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup.classList.remove('active');
+    // btnClose.classList.remove('active');
+})
+
+btnUnderstood.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup.classList.remove('active');
+    // btnClose.classList.remove('active');
+})
+
+
+// Botón de copiar
+let btnCopy = document.getElementById('copy');
+
+btnCopy.addEventListener('click', () => {
     
-    let decodedText = cipher.codificar(enterDecodedInput,decodedOffsetInput);
-
-    let resultado = document.getElementById('resultado-codificado');
-    resultado.value = decodedText;
-});
-// ----------------------------------
+    let resultado = document.getElementById('resultado');
+    let inputOculto = document.createElement('input');
+    inputOculto.value = resultado.value;
+    inputOculto.setAttribute('value', resultado.value);
 
 
-// Ventana encoded-to-decoded
+    document.body.appendChild(inputOculto);
+    inputOculto.select();
+    document.execCommand('copy');
 
-// let enterEncodedInput = document.getElementById('ingresar-texto-codificado');
-const encodedOffsetInput = document.getElementById('decoded-offset');
-
-
-// enterEncodedInput.addEventListener('input', ()=>{
+    document.body.removeChild(inputOculto);
     
-//     let encodedText = cipher.decodificar(enterEncodedInput,encodedOffsetInput);
 
-//     let resultadoDecodificado=document.getElementById('resultado-decodificado');
-//     resultadoDecodificado.value = encodedText;
+    console.log(inputOculto);
 
-// });
-
-const changeWindowsToEncoded = document.getElementById('change-windows-to-encoded');
-changeWindowsToEncoded.addEventListener('click', functionalitiesDecodedToEncoded.changeToEncoded);
-
-const cleanEncodedInput = document.getElementById('clean-encoded-input');
-cleanEncodedInput.addEventListener('click', functionalitiesDecodedToEncoded.limpiarVentanaCodificada);
-
-encodedOffsetInput.addEventListener('input', () => {
     
-    // console.log('inpuuuut');
+    
 
-    // let decodedText = cipher.decodificar(enterEncodedInput,encodedOffsetInput);
+})
 
-    // let resultadoCodificado = document.getElementById('resultado-codificado');
-    // resultadoCodificado.value = decodedText;
-});
-
-
-
-
-
-
-// function probandoDecodificar (text,offset){
-//     cipher.decodificar(text,offset);
-// }
-
-// probandoDecodificar('HI JK','7');
