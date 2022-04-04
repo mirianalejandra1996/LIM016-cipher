@@ -38,18 +38,40 @@ La vista inicial proporcionará un traductor que permite al usuario:
 * Insertar un mensaje (texto o número) a descifrar.
 * Ver el resultado del mensaje descifrado.
 
-### Vistas
+### Prototipo
+
+El diseño del Wireframe se llevó a cabo con [Figma](https://www.figma.com/)
+
+## Codificar el mensaje
+![workspace1](https://user-images.githubusercontent.com/91838806/161579135-483daea6-c597-4d71-b1c4-1daf61bff39a.png)
+
+## Decodificar el mensaje
+![workspace2](https://user-images.githubusercontent.com/91838806/161579202-09c8e8f5-af4a-4480-bdde-605915f45378.png)
+
+## Modal con guía de uso
+![workspace0 (1)](https://user-images.githubusercontent.com/91838806/161579901-b8a38eb1-9700-4d7e-8a31-282dccb2d5dd.png)
+
+### Resultado final - Vistas
 
 Se tomó en cuenta al público dirigido para crear la pantalla basada en una paleta de rosados suaves y esquinas redondeadas para generar una sensación suave y agradable para el usuario.
 
 Tendrá dos secciones que cambiarán de posición según lo que el usuario desee realizar (encriptar o desencriptar un mensaje) en la parte superior indicará con un icono
 en cómo se des/encriptará el mensaje, y en la parte inferior tendrá la opción de definir el offset (nivel de desplazamiento) y en caso que desee borrar algún mensaje muy largo, podrá acceder al botón de la escobilla para una limpieza más rápida.
 
+Además se consideró hacer algunas modificaciones para generar una mejor experiencia como un botón para traducir, y un botón de copiar el texto generado.
+
+Estas son las vistas:
+
 ## Codificar el mensaje
-![WhatsApp Image 2022-04-03 at 11 42 39 PM](https://user-images.githubusercontent.com/91838806/161475974-e558365c-07cb-43b5-bd83-47439b4ffed0.jpeg)
+![WhatsApp Image 2022-04-04 at 10 38 28 AM](https://user-images.githubusercontent.com/91838806/161583003-be3cafb9-7bda-4613-827c-ab7e78658d09.jpeg)
+
 
 ## Decodificar el mensaje
-![WhatsApp Image 2022-04-03 at 11 49 17 PM](https://user-images.githubusercontent.com/91838806/161475982-6e9b608b-3f39-4b0f-ac62-91b0e55a1adc.jpeg)
+![WhatsApp Image 2022-04-04 at 10 39 45 AM](https://user-images.githubusercontent.com/91838806/161583048-ce13d82d-f1e3-4aff-9a44-6f18de5ec36c.jpeg)
+
+## Modal para guía de uso
+![WhatsApp Image 2022-04-04 at 10 38 52 AM](https://user-images.githubusercontent.com/91838806/161583111-00d8aceb-f07c-4e2c-975f-6d1b89f615db.jpeg)
+
 
 ## 4. Objetivos de aprendizaje
 
@@ -91,8 +113,11 @@ en cómo se des/encriptará el mensaje, y en la parte inferior tendrá la opció
 - [ ] Crear prototipos para obtener feedback e iterar
 - [x] Aplicar los principios de diseño visual (contraste, alineación, jerarquía)
 
+## 9. Link de Despliegue
 
-## 9. Autor
+Puedes hacer en este [link 🌟](https://mirianalejandra1996.github.io/LIM016-cipher/src/) para visualizar el sitio web.
+
+## 10. Autor
 
 [Mirian Alejandra Arévalo 🙋](https://github.com/mirianalejandra1996).
 
