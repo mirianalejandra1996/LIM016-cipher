@@ -1,0 +1,389 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 50px;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  background: rgb(251, 251, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 251, 251, 1) 0%,
+    rgba(255, 255, 255, 1) 100%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+/* Fonts icons */
+
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?n3wt4b");
+  src: url("fonts/icomoon.eot?n3wt4b#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?n3wt4b") format("truetype"),
+    url("fonts/icomoon.woff?n3wt4b") format("woff"),
+    url("fonts/icomoon.svg?n3wt4b#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-copy-svgrepo-com-1:before {
+  content: "\e907";
+}
+.icon-copy-svgrepo-com:before {
+  content: "\e908";
+}
+.icon-close-svgrepo-com:before {
+  content: "\e909";
+}
+.icon-play-svgrepo-com:before {
+  content: "\e906";
+}
+.icon-to-encoded-icon-bigger-este:before {
+  content: "\e900";
+}
+.icon-to-decoded-icon-bigger:before {
+  content: "\e901";
+}
+.icon-a-letter-icon:before {
+  content: "\e902";
+}
+.icon-broom-icon:before {
+  content: "\e903";
+}
+.icon-chinese-letter-icon:before {
+  content: "\e904";
+}
+.icon-padlock-icon:before {
+  content: "\e905";
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 20px;
+  text-align: center;
+}
+
+#header h1 {
+  font-size: 55px;
+  margin-bottom: 5px;
+}
+
+.container {
+  height: 350px;
+  width: 530px;
+  margin: 55px auto 20px;
+  position: relative;
+}
+
+.upper-window-main {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+}
+
+.lower-window-main {
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 200;
+}
+
+.windowTransition {
+}
+
+.div-back-tab {
+  background-color: #ffb4a2;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  z-index: 250;
+  box-sizing: border-box;
+}
+
+.div-front-tab {
+  background-color: #ffb4a2;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  z-index: 250;
+  box-sizing: border-box;
+}
+
+.copy {
+  /* background-color: #973b24; */
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+  z-index: 1000000000000000;
+  box-sizing: border-box;
+}
+
+.copy .icon span {
+  font-size: 30px;
+  color: #ffcdb2;
+}
+
+.copy .icon span:hover {
+  font-size: 30px;
+  color: #ffdecc;
+  transition: 0.3s ease all;
+}
+
+.sub-window-upper {
+  background-color: #b5838d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  padding: 25px 20px;
+}
+
+.sub-window-lower {
+  background-color: #e5989b;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  padding: 25px 20px;
+}
+
+.offset-input-element {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: #fbfafa;
+  border-radius: 50px;
+  position: absolute;
+  text-align: center;
+  padding-left: 45px;
+}
+
+.large-btn {
+  width: 135px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #ffcdb2;
+  border-radius: 50px;
+  text-align: center;
+  /* padding-left: 45px; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.large-btn:hover {
+  background: #fdd5bf;
+  transition: 0.3s ease all;
+}
+
+/* Estilos de diseño */
+.rounded-square {
+  border-radius: 30px;
+}
+
+/* Estilos de los botones */
+.btn-circle {
+  background: #ffcdb2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-circle:hover {
+  background: #fdd5bf;
+  transition: 0.3s ease all;
+}
+
+.icon {
+  color: #000;
+}
+
+.btn-circle .icon span {
+  font-size: 20px;
+}
+
+/* Distancia entre los botones */
+.option-button {
+  margin: 0 20px;
+}
+
+/* Elementos de cada Ventana */
+.identifier-btn-section {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  z-index: 350;
+  cursor: context-menu;
+}
+
+.tab {
+  top: -45px;
+  padding: 15px 20px;
+  width: 30%;
+}
+
+/* Textarea Estilos */
+.text-area {
+  resize: none;
+  outline: none;
+  border: none;
+  background: none;
+  /* padding: 10px; */
+  width: 96%;
+  padding: 10px;
+  color: #000;
+  font-family: "Roboto";
+  font-size: 14px;
+  height: 90%;
+}
+
+#texto {
+  height: 30%;
+}
+
+#texto::placeholder {
+  color: #000;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-style: italic;
+  line-height: initial;
+  font-size: 14px;
+}
+
+/* Seccion Inferior de Botones (diversas opciones) */
+#buttons-section {
+  margin: 10px auto;
+  width: 350px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Botón + input del offset */
+#offset-container {
+  position: relative;
+  width: 50px;
+  z-index: 300;
+}
+
+.input-btn {
+  position: absolute;
+  z-index: 400;
+}
+
+/* ventana de instrucciones*/
+.overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* position: fixed; */
+  /* position: absolute; */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  /* transition: all 500ms ease; */
+}
+
+.overlay.active {
+  visibility: visible;
+}
+
+.popup {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 420px;
+  height: 370px;
+  /* transition: 0.3s ease all; */
+  opacity: 1;
+  justify-content: center;
+  /* transform: scale(0.7); */
+  /* position: fixed; */
+}
+
+.popup .icon-close {
+  font-size: 16px;
+  line-height: 16px;
+  display: block;
+  text-align: right;
+  color: #bbb;
+  transition: 0.3s ease all;
+}
+
+.popup .icon-close:hover {
+  color: #000;
+}
+
+.popup h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  /* opacity: 0; */
+}
+
+.popup p {
+  text-align: left;
+  margin-top: 5px;
+  line-height: 23px;
+  margin-left: 10px;
+}
+
+.popup p span {
+  color: #1b1b1b;
+  margin: 0 5px;
+}
+
+#understood {
+  margin-top: 25px;
+  /* margin-bottom: 10px; */
+}
+
+/* animaciones */
+.popup .active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ----Scrollbar de los textareas */
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: red;
+}
