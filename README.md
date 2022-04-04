@@ -115,7 +115,7 @@ Estas son las vistas:
 
 ## 9. Link de Despliegue
 
-Puedes hacer en este [link 🌟](https://mirianalejandra1996.github.io/LIM016-cipher/src/) para visualizar el sitio web.
+Puedes hacer en este [link 🌟](https://mirianalejandra1996.github.io/LIM016-cipher/) para visualizar el sitio web.
 
 ## 10. Autor
 
