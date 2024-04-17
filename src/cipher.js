@@ -19,7 +19,7 @@ function encode (offset,text) {
 
 
     let encodedTextResult = '';
-    // ! NO TOCAR
+
     for (let letter of decodedArray){
 
         let letterDecodedPosition = letter.charCodeAt(0);

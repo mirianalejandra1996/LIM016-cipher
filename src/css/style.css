@@ -3,17 +3,9 @@
   margin: 0;
 }
 
-body {
-  padding: 50px;
+  body {
   box-sizing: border-box;
-  font-family: "Roboto";
-  background: rgb(251, 251, 251);
-  background: linear-gradient(
-    90deg,
-    rgba(251, 251, 251, 1) 0%,
-    rgba(255, 255, 255, 1) 100%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  font-family: 'Roboto', san-serif;
 }
 
 /* Fonts icons */
@@ -83,6 +75,7 @@ body {
   position: relative;
   left: 20px;
   text-align: center;
+  padding-top: 3rem;
 }
 
 #header h1 {
@@ -318,11 +311,13 @@ body {
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  /* display: none; */
   /* transition: all 500ms ease; */
 }
 
 .overlay.active {
   visibility: visible;
+  /* display: flex; */
 }
 
 .popup {
@@ -345,7 +340,9 @@ body {
   display: block;
   text-align: right;
   color: #bbb;
-  transition: 0.3s ease all;
+  transition: 0.3s ease color;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .popup .icon-close:hover {

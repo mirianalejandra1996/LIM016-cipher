@@ -81,6 +81,12 @@ btnClose.addEventListener('click', () => {
     // btnClose.classList.remove('active');
 })
 
+overlay.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup.classList.remove('active');
+    // btnClose.classList.remove('active');
+})
+
 btnUnderstood.addEventListener('click', () => {
     overlay.classList.remove('active');
     popup.classList.remove('active');
